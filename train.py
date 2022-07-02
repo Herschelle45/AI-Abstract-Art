@@ -17,7 +17,7 @@ gen = Generator(100, 3, 64)
 disc = Discriminator(3, 64)
 optimgen = torch.optim.Adam(gen.parameters(), lr=2e-4, betas=(0.5, 0.999)) 
 optimdisc = torch.optim.Adam(disc.parameters(), lr=2e-4, betas=(0.5, 0.999)) 
-EPOCHS=5
+EPOCHS=15
 lossfunc = torch.nn.BCELoss().to(device)
 for epoch in range(EPOCHS):
   loop = tqdm(absartloader)
@@ -38,3 +38,7 @@ for epoch in range(EPOCHS):
     optimgen.zero_grad()
     genloss.backward()
     optimgen.step()
+  if (epcoh+1)%5==0:
+        torch.save({'model_state':gen.state_dict()},f'absartgen_{epoch+1}.pt')
+        torch.save({'model_state':disc.state_dict()},f'absartgen_{epoch+1}.pt')
+
