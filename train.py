@@ -41,7 +41,7 @@ for epoch in range(EPOCHS):
     discloss.backward(retain_graph=True)
     optimdiscdcgan.step()
     pred = dcgandisc(fake).reshape(-1).to(device)
-    genloss = lossfunc(pred, torch.ons_like(pred))
+    genloss = lossfunc(pred, torch.ones_like(pred))
     optimgendcgan.zero_grad()
     genloss.backward()
     optimgendcgan.step()
