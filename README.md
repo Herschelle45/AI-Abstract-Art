@@ -6,6 +6,8 @@ Download the dataset from: https://www.kaggle.com/datasets/bryanb/abstract-art-g
 DCGAN papers: https://arxiv.org/abs/1511.06434</br>
 ```
 $ git clone github.com/Herschelle45/AI-Abstract-Art
+
 $ cd AI-Abstract-Art
+
 $ python3 train.py
 ```
